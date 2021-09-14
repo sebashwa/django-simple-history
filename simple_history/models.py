@@ -597,11 +597,14 @@ class HistoricalChanges:
             excluded_fields = []
         changes = []
         changed_fields = []
-        old_values = model_to_dict(old_history.instance)
-        current_values = model_to_dict(self.instance)
+
+        for model_field in self.instance._meta.get_fields():
+            if model_field.many_to_many:
+                excluded_fields.append(model_field.name)
+
+        old_values = model_to_dict(old_history.instance, exclude=excluded_fields)
+        current_values = model_to_dict(self.instance, exclude=excluded_fields)
         for field, new_value in current_values.items():
-            if field in excluded_fields:
-                continue
             if field in old_values:
                 old_value = old_values[field]
                 if old_value != new_value:

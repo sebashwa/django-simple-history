@@ -100,6 +100,7 @@ Authors
 - Ross Lote
 - Ross Mechanic (`rossmechanic <https://github.com/rossmechanic>`_)
 - Ross Rogers
+- `sebashwa <https://github.com/sebashwa>`_
 - Sergey Ozeranskiy (`ozeranskiy <https://github.com/ozeranskiy>`_)
 - Shane Engelman
 - Steeve Chailloux
